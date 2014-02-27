@@ -1,0 +1,25 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Frankfurt}
+  %gets rid of bottom navigation bars
+  \setbeamertemplate{footline}[page number]{}
+}
+
+\input{common.tex}
+
+
+\begin{document}
+
+\lstset{language=C++}
+
+% title page
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% rest of the content
+\input{slides.tex}
+
+\end{document}

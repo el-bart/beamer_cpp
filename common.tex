@@ -1,0 +1,70 @@
+% use polish by default - feel free to change ;)
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage[OT4]{fontenc}
+\usepackage{times}
+%\usepackage[T1]{fontenc}
+\usepackage{listings,bera}
+\usepackage{graphicx}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{multirow}
+
+% disables the navigation symbol on the bottom of the screen
+\setbeamertemplate{navigation symbols}{}
+% disables slide numbers on the bottom of the screen
+\setbeamertemplate{footline}{}
+
+%\usecolortheme[rgb={0.1,0.6,0.3}]{structure}
+
+\input{info.tex}
+
+
+\newcommand{\listingNormal}
+{
+\lstset
+{
+  language=C++,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  basicstyle=\ttfamily,
+  keywordstyle=\color{blue}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  commentstyle=\color{cyan}\ttfamily,
+  morecomment=[l][\color{magenta}]{\#}
+}
+}
+
+
+\newcommand{\listingNoLineNum}
+{
+\lstset{numbers=none}
+}
+
+
+
+% insImgFr{frame-range}{x}{y}{s}{img}
+\newcommand{\insImgFr}[5]
+{
+  \begin{textblock*}{5cm}(#2\textwidth,#3\textwidth)
+    \includegraphics<#1>[scale=#4]{#5}
+  \end{textblock*}
+}
+% insImg{x}{y}{s}{img}
+\newcommand{\insImg}[4]
+{
+  \insImgFr{0-}{#1}{#2}{#3}{#4}
+}
+
+
+% \slide{name}{content}
+\newcommand{\slide}[2]
+{
+\subsection*{#1}
+\begin{frame}
+\frametitle{#1}
+\listingNormal
+#2
+\end{frame}
+}
