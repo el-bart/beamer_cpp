@@ -5,4 +5,13 @@
 \institute{my@e.mail}
 
 % comment this out to set date to current one, in a given language
-\date{2014-02-27}
+\date{2014-03-03}
+
+% comment this out to disable outline slides, between sections
+\AtBeginSection[]
+{
+\begin{frame}<beamer>
+\frametitle{Outline for section \thesection}
+\tableofcontents[currentsection]
+\end{frame}
+}
