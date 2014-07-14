@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<todo version="0.1.20">
+    <note priority="medium" time="1405352730">
+        faq.txt: font sizes
+    </note>
+    <note priority="medium" time="1405352744">
+        faq.txt: custom sizes (eg. ending question mark)
+    </note>
+    <note priority="medium" time="1405352752">
+        faq.txt: boxes with messages
+    </note>
+    <note priority="medium" time="1405352759">
+        faq.txt: source code insertion
+    </note>
+    <note priority="medium" time="1405352766">
+        faq.txt: multicolumn text
+    </note>
+    <note priority="medium" time="1405352776">
+        faq.txt: source code building: functions and modules
+    </note>
+</todo>
