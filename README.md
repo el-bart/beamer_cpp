@@ -1,7 +1,11 @@
 Beamer C++
 ==========
 
-beamer for C++ presentations template. not very generic, but a good place to
-start, when preparing presentation with a lot of code in it. has a mean for
-automatic checking if code snippets do compile (you always include compilable
-code!).
+beamer template for C++ presentations. it provides facilities to compile code
+prior to its insertion on a slide. it allows also on-the-fly generation of
+gnuplot and graphviz (dot) images, that are to be inserted on a slides.
+it all comes with a set of macros that simplify using beamer for typical C++-oriented
+presentation.
+
+template comes with set of example sides, both showing its capabilities and
+providing cheat-shit on most common beamer/LaTeX features.
