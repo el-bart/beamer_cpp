@@ -3,8 +3,13 @@ HDRS := $(wildcard *.hpp)
 SRCS := $(HDRS:.hpp=.cpp)
 OBJS := $(SRCS:.cpp=.oxx)
 
+.SECONDARY:
+
 CXX      := g++
-CXXFLAGS := -Wall -std=c++11 -Werror
+CXXFLAGS += -std=c++1y
+CXXFLAGS += -Wall -Werror
+CXXFLAGS += -Wno-unused-but-set-variable
+CXXFLAGS += -Wno-unused-variable
 
 .PHONY: all
 all: $(OBJS)
@@ -29,4 +34,4 @@ all: $(OBJS)
 
 .PHONY: clean
 clean:
-	rm -fv $(OBJS)
+	rm -fv $(OBJS) $(SRCS)
