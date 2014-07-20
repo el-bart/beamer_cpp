@@ -24,13 +24,16 @@
             done
         </comment>
     </note>
-    <note priority="medium" time="1405352752">
-        faq.txt: boxes with messages
-    </note>
     <note priority="medium" time="1405352776" done="1405859347">
         faq.txt: source code building: functions and modules
         <comment>
             code
+        </comment>
+    </note>
+    <note priority="medium" time="1405352752" done="1405859505">
+        faq.txt: boxes with messages
+        <comment>
+            added
         </comment>
     </note>
 </todo>
