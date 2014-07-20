@@ -16,7 +16,11 @@
 *.asm
 *.o
 *.oxx
+*.d
 *.tmp
 *.mod
 *.out
 *.objdump
+cpp/*.cpp
+dot/*.png
+gnuplot/*.png
