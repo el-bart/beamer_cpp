@@ -1,21 +1,36 @@
 <?xml version="1.0"?>
 <todo version="0.1.20">
-    <note priority="medium" time="1405352730">
+    <note priority="medium" time="1405352730" done="1405859316">
         faq.txt: font sizes
+        <comment>
+            added in example slides
+        </comment>
     </note>
-    <note priority="medium" time="1405352744">
+    <note priority="medium" time="1405352744" done="1405859330">
         faq.txt: custom sizes (eg. ending question mark)
+        <comment>
+            slide
+        </comment>
+    </note>
+    <note priority="medium" time="1405352759" done="1405859338">
+        faq.txt: source code insertion
+        <comment>
+            code
+        </comment>
+    </note>
+    <note priority="medium" time="1405352766" done="1405859343">
+        faq.txt: multicolumn text
+        <comment>
+            done
+        </comment>
     </note>
     <note priority="medium" time="1405352752">
         faq.txt: boxes with messages
     </note>
-    <note priority="medium" time="1405352759">
-        faq.txt: source code insertion
-    </note>
-    <note priority="medium" time="1405352766">
-        faq.txt: multicolumn text
-    </note>
-    <note priority="medium" time="1405352776">
+    <note priority="medium" time="1405352776" done="1405859347">
         faq.txt: source code building: functions and modules
+        <comment>
+            code
+        </comment>
     </note>
 </todo>
