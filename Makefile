@@ -10,7 +10,7 @@ PDF :=$(MAIN).pdf
 
 .PHONY: all
 #all: REM=@true
-all: pdf
+all: pdf script
 
 .PHONY: pdf
 pdf: $(PDF)
@@ -23,6 +23,11 @@ $(PDF): $(SRCS) $(PICS) $(HDRS) Makefile | cpp dot gnuplot
 .PHONY: cpp dot gnuplot
 cpp dot gnuplot:
 	+$(MAKE) -C "$@"
+
+.PHONY: script
+script: script.log
+script.log: $(SRCS)
+	grep -e '% NOTE: ' -e 'slide{' slides.tex $$(cat slides.tex | grep input | sed 's:.*{\(.*\)}:\1:') > "$@"
 
 
 .PHONY: clean
