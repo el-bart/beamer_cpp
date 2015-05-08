@@ -1,18 +1,28 @@
 DOTS:=$(wildcard *.dot)
 DIAGS:=$(wildcard *.diag)
+
 PNGS+=$(DOTS:.dot=.png)
 PNGS+=$(DIAGS:.diag=.png)
 
+SVGS+=$(PNGS:.png=.svg)
+
+DPI:=300
+
+# keep SVGs as well - vector images can still be usefull at later stages
+.SECONDARY:
 
 .PHONY: all
 all: $(PNGS)
 
-%.png: %.dot Makefile
-	dot -Tpng -o "$@" "$<"
+%.svg: %.dot Makefile
+	dot -Tsvg -o "$@" "$<"
 
-%.png: %.diag Makefile
-	seqdiag -Tpng -o "$@" "$<"
+%.svg: %.diag Makefile
+	seqdiag -Tsvg -o "$@" "$<"
+
+%.png: %.svg Makefile
+	convert -units PixelsPerInch -density "$(DPI)" "$<" "$@"
 
 .PHONY: clean
 clean:
-	rm -fv $(PNGS)
+	rm -fv $(PNGS) $(SVGS)

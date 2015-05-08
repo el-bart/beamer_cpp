@@ -23,4 +23,5 @@
 *.objdump
 cpp/*.cpp
 dot/*.png
+dot/*.svg
 gnuplot/*.png
