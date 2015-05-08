@@ -1,7 +1,7 @@
 #
 # Demonstrate explicit choice of both dot/dash pattern (linetype) and color (linecolor).
 #
-set terminal png
+set terminal png size 1024,768
 set termoption dash
 
 set xrange [-0.5:3.5]
