@@ -1,5 +1,7 @@
 SRCS:=$(shell find . -follow -type f -iname '*.tex')
-PICS:=$(shell find . -follow -type f -iname '*.jpg' -o -iname '*.png')
+PICS:=$(shell find pic/* -follow -type f)
+DOTS:=$(shell find dot/* -follow -type f)
+GPLS:=$(shell find gnuplot/* -follow -type f)
 HDRS:=$(wildcard cpp/*.hpp)
 
 TEXFLAGS:=-file-line-error -halt-on-error
@@ -15,7 +17,7 @@ all: pdf script
 .PHONY: pdf
 pdf: $(PDF)
 
-$(PDF): $(SRCS) $(PICS) $(HDRS) Makefile | cpp dot gnuplot
+$(PDF): $(SRCS) $(PICS) $(DOTS) $(GPLS) $(HDRS) Makefile | cpp dot gnuplot
 	pdflatex $(TEXFLAGS) $(MAIN) || ( echo ; rm -fv $(PDF) ; exit 1 )
 	$(REM) pdflatex $(TEXFLAGS) $(MAIN)
 	$(REM) pdflatex $(TEXFLAGS) $(MAIN)
