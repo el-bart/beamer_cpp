@@ -4,6 +4,7 @@ SRCS := $(HDRS:.hpp=.cpp)
 OBJS := $(SRCS:.cpp=.oxx)
 APPH := $(wildcard *-a.hpp)
 APPS := $(APPH:.hpp=.out)
+DEPS := $(wildcard *.d)
 
 .SECONDARY:
 
@@ -12,6 +13,7 @@ CXXFLAGS += -std=c++1y
 CXXFLAGS += -Wall -Werror
 CXXFLAGS += -Wno-unused-but-set-variable
 CXXFLAGS += -Wno-unused-variable
+CXXFLAGS += -MD
 
 .PHONY: all
 all: $(OBJS) $(APPS)
@@ -43,3 +45,5 @@ all: $(OBJS) $(APPS)
 .PHONY: clean
 clean:
 	rm -fv $(OBJS) $(SRCS) $(APPS)
+
+-include $(DEPS)
