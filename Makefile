@@ -1,4 +1,5 @@
 SRCS:=$(shell find . -follow -type f -iname '*.tex')
+QRS :=$(shell find qr/* -follow -type f)
 PICS:=$(shell find pic/* -follow -type f)
 DOTS:=$(shell find dot/* -follow -type f)
 GPLS:=$(shell find gnuplot/* -follow -type f)
@@ -17,13 +18,13 @@ all: pdf script
 .PHONY: pdf
 pdf: $(PDF)
 
-$(PDF): $(SRCS) $(PICS) $(DOTS) $(GPLS) $(HDRS) Makefile | cpp dot gnuplot
+$(PDF): $(SRCS) $(QRS) $(PICS) $(DOTS) $(GPLS) $(HDRS) Makefile | cpp dot gnuplot
 	pdflatex $(TEXFLAGS) $(MAIN) || ( echo ; rm -fv $(PDF) ; exit 1 )
 	$(REM) pdflatex $(TEXFLAGS) $(MAIN)
 	$(REM) pdflatex $(TEXFLAGS) $(MAIN)
 
-.PHONY: cpp dot gnuplot
-cpp dot gnuplot:
+.PHONY: cpp qr dot gnuplot
+cpp qr dot gnuplot:
 	+$(MAKE) -C "$@"
 
 .PHONY: script
@@ -35,6 +36,7 @@ script.log: $(SRCS)
 .PHONY: clean
 clean:
 	+$(MAKE) -C cpp clean
+	+$(MAKE) -C qr  clean
 	+$(MAKE) -C dot clean
 	+$(MAKE) -C gnuplot clean
 	rm -fv *.dvi *.pdf *.aux *bak *.log *.lof *.lot *.toc *.bbl *.blg *.nav *.out *.snm *.vrb

@@ -12,7 +12,7 @@
 .*~
 .*.kate-swp
 
-# compilation outputs:
+# compilation outputs and generated elements:
 *.asm
 *.o
 *.oxx
@@ -21,6 +21,7 @@
 *.mod
 *.out
 *.objdump
+qr/*.png
 cpp/*.cpp
 dot/*.png
 dot/*.svg

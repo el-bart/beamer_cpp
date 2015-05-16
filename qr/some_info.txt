@@ -1,0 +1,2 @@
+text to be
+show on QR code
