@@ -18,7 +18,7 @@ all: pdf script
 .PHONY: pdf
 pdf: $(PDF)
 
-$(PDF): $(SRCS) $(QRS) $(PICS) $(DOTS) $(GPLS) $(HDRS) Makefile | cpp dot gnuplot
+$(PDF): $(SRCS) $(QRS) $(PICS) $(DOTS) $(GPLS) $(HDRS) Makefile | cpp qr dot gnuplot
 	pdflatex $(TEXFLAGS) $(MAIN) || ( echo ; rm -fv $(PDF) ; exit 1 )
 	$(REM) pdflatex $(TEXFLAGS) $(MAIN)
 	$(REM) pdflatex $(TEXFLAGS) $(MAIN)
