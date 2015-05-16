@@ -1,5 +1,5 @@
 INLS := $(wildcard *.inl)
-HDRS := $(wildcard *.hpp)
+HDRS := $(wildcard *-[fma].hpp)
 SRCS := $(HDRS:.hpp=.cpp)
 OBJS := $(SRCS:.cpp=.oxx)
 
