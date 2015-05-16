@@ -2,6 +2,8 @@ INLS := $(wildcard *.inl)
 HDRS := $(wildcard *-[fma].hpp)
 SRCS := $(HDRS:.hpp=.cpp)
 OBJS := $(SRCS:.cpp=.oxx)
+APPH := $(wildcard *-a.hpp)
+APPS := $(APPH:.hpp=.out)
 
 .SECONDARY:
 
@@ -12,18 +14,24 @@ CXXFLAGS += -Wno-unused-but-set-variable
 CXXFLAGS += -Wno-unused-variable
 
 .PHONY: all
-all: $(OBJS)
+all: $(OBJS) $(APPS)
+
+%.out: %.oxx Makefile
+	@echo "LD $@"
+	@$(CXX) $(CXXFLAGS) -o $@ $<
 
 %.oxx: %.cpp Makefile
 	@echo "CXX $<"
 	@$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-# note: CPP file will be removed as a secondary target, which is good, as we do not want them under VCS...
 %-m.cpp: %-m.hpp HEADER.inl FOOTER.inl Makefile
 	@echo "MODULE $@"
 	@cat HEADER.inl $< FOOTER.inl > $@
 
-# note: CPP file will be removed as a secondary target, which is good, as we do not want them under VCS...
+%-a.cpp: %-a.hpp HEADER.inl FOOTER.inl Makefile
+	@echo "APPLICATION $@"
+	@cat HEADER.inl $< FOOTER.inl > $@
+
 %-f.cpp: %-f.hpp HEADER.inl FOOTER.inl Makefile
 	@echo "FUNCTION $@"
 	@cat HEADER.inl > $@
@@ -34,4 +42,4 @@ all: $(OBJS)
 
 .PHONY: clean
 clean:
-	rm -fv $(OBJS) $(SRCS)
+	rm -fv $(OBJS) $(SRCS) $(APPS)
