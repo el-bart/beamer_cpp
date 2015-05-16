@@ -25,5 +25,6 @@ qr/*.png
 cpp/*.cpp
 dot/*.png
 dot/*.svg
+svg/*.png
 gnuplot/*.png
 gnuplot/*.svg
