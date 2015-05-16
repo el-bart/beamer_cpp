@@ -23,6 +23,10 @@ $(PDF): $(SRCS) $(QRS) $(PICS) $(DOTS) $(GPLS) $(HDRS) Makefile | cpp qr dot gnu
 	$(REM) pdflatex $(TEXFLAGS) $(MAIN)
 	$(REM) pdflatex $(TEXFLAGS) $(MAIN)
 
+.PHONY: fast
+fast: REM:=true
+fast: pdf
+
 .PHONY: cpp qr dot gnuplot
 cpp qr dot gnuplot:
 	+$(MAKE) -C "$@"
