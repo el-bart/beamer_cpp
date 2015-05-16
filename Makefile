@@ -1,9 +1,9 @@
-SRCS:=$(shell find . -follow -type f -iname '*.tex')
-QRS :=$(shell find qr/ -follow -type f)
-PICS:=$(shell find pic/ -follow -type f)
-DOTS:=$(shell find dot/ -follow -type f)
-GPLS:=$(shell find gnuplot/ -follow -type f)
-HDRS:=$(wildcard cpp/)
+SRCS:=$(wildcard *.tex)
+QRS :=$(wildcard qr/*)
+PICS:=$(wildcard pic/*)
+DOTS:=$(wildcard dot/*)
+GPLS:=$(wildcard gnuplot/*)
+HDRS:=$(wildcard cpp/*)
 
 TEXFLAGS:=-file-line-error -halt-on-error
 
