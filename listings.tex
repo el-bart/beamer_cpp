@@ -1,0 +1,46 @@
+\section{Listings}
+
+
+\slide{Test module}
+{
+\begin{itemize}
+\item Modules end with "-m"
+\item They are self-containing
+\end{itemize}
+\lstinputlisting{cpp/test-m.hpp}
+}
+
+
+\slide{Test function}
+{
+\begin{itemize}
+\item Functions ends with "-f"
+\item Content of file is wrapped into a function call
+\end{itemize}
+\lstinputlisting{cpp/other-f.hpp}
+}
+
+
+\slide{Multicolumn listing}
+{
+\tiny{}
+\begin{multicols}{2}
+\lstinputlisting{cpp/long_source-m.hpp}
+\end{multicols}
+}
+
+
+\slide{Verbatim blocks}
+{
+\begin{itemize}
+\item \emph{verbatim} does not work normally
+\item \emph{fragile} does not work when inside \emph{newcommand}
+\item \emph{semiverbatim} is prefferred
+\item it may require some escaping though\ldots
+\end{itemize}
+\begin{semiverbatim}
+some weird +!@\% text
+
+it's fine \
+\end{semiverbatim}
+}
