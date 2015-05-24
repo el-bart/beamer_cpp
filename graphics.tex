@@ -9,7 +9,19 @@
 }
 
 
-\slide{Images on different pages}
+\slide{Box around image part}
+{
+\begin{center}
+\begin{tikzpicture}
+\node[anchor=south west, inner sep=0] at (0,0) { \includegraphics[scale=0.25]{pic/transistor} };
+\draw<1>[green,thick,       rounded corners] (2.7, 1.6) rectangle (\textheight-3.2cm, 5);
+\draw<2>[red,  ultra thick, rounded corners] (3.9, 2.5) rectangle (4.8, 3.2);
+\end{tikzpicture}
+\end{center}
+}
+
+
+\slide{Images on the same page}
 {
 \begin{center}
 \includegraphics<1>[scale=0.125]{pic/transistor}
