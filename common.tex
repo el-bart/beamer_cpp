@@ -10,6 +10,7 @@
 \usepackage{xcolor}
 \usepackage{multicol}
 \usepackage{multirow}
+\usepackage{etoolbox}
 
 % disables the navigation symbol on the bottom of the screen
 \setbeamertemplate{navigation symbols}{}
@@ -32,7 +33,8 @@
   keywordstyle=\color{blue}\ttfamily,
   stringstyle=\color{red}\ttfamily,
   commentstyle=\color{cyan}\ttfamily,
-  morecomment=[l][\color{magenta}]{\#}
+  morecomment=[l][\color{magenta}]{\#},
+  showlines=true % do NOT ignore any whitespaces in the file!
 }
 }
 
@@ -67,4 +69,45 @@
 \listingNormal
 #2
 \end{frame}
+}
+
+
+% see http://latexcolor.com for others
+\definecolor{celadon}{rgb}{0.67, 0.88, 0.69}
+\lstdefinestyle{listingHighlight}{ backgroundcolor=\color{celadon} }
+\newcounter{listingHighlightLineCounter}
+
+% \emphLine{fromLine}{toLine}{fileName}
+\newcommand{\highlightedListing}[3]
+{
+  \setcounter{listingHighlightLineCounter}{#1}
+  \addtocounter{listingHighlightLineCounter}{-1}
+
+  % when first line is to be highlighted, first section cannot be used
+  \ifnumequal{#1}{1}
+  {
+    \lstinputlisting[belowskip=0pt,
+                     linerange={#1-#2},
+                     style=listingHighlight,
+                     firstnumber=1]
+                    {#3}
+  }
+  {
+    \lstinputlisting[belowskip=0pt,
+                     linerange={1-\value{listingHighlightLineCounter}}]
+                    {#3}
+    \lstinputlisting[belowskip=0pt,
+                     aboveskip=0pt,
+                     linerange={#1-#2},
+                     style=listingHighlight,
+                     firstnumber=last]
+                    {#3}
+  }
+  \setcounter{listingHighlightLineCounter}{#2}
+  \addtocounter{listingHighlightLineCounter}{1}
+
+  \lstinputlisting[aboveskip=0pt,
+                   firstline=\the\value{listingHighlightLineCounter},
+                   firstnumber=last]
+                  {#3}
 }
