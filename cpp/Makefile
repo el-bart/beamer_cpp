@@ -44,6 +44,6 @@ all: $(OBJS) $(APPS)
 
 .PHONY: clean
 clean:
-	rm -fv $(OBJS) $(SRCS) $(APPS)
+	rm -fv $(OBJS) $(SRCS) $(APPS) $(DEPS)
 
 -include $(DEPS)
