@@ -1,6 +1,7 @@
 GPLS:=$(wildcard *.gpl)
 SVGS:=$(GPLS:.gpl=.svg)
 PNGS:=$(SVGS:.svg=.png)
+DATS:=$(wildcard *.dat)
 
 DPI:=300
 
@@ -10,7 +11,7 @@ DPI:=300
 .PHONY: all
 all: $(PNGS)
 
-%.svg: %.gpl Makefile
+%.svg: %.gpl $(DATS) Makefile
 	gnuplot "$<" > "$@"
 
 %.png: %.svg Makefile
