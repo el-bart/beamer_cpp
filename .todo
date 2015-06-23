@@ -12,6 +12,12 @@
             slide
         </comment>
     </note>
+    <note priority="medium" time="1405352752" done="1405859505">
+        faq.txt: boxes with messages
+        <comment>
+            added
+        </comment>
+    </note>
     <note priority="medium" time="1405352759" done="1405859338">
         faq.txt: source code insertion
         <comment>
@@ -30,10 +36,7 @@
             code
         </comment>
     </note>
-    <note priority="medium" time="1405352752" done="1405859505">
-        faq.txt: boxes with messages
-        <comment>
-            added
-        </comment>
+    <note priority="medium" time="1435077873">
+        code hihglighting by fading remaining parts instead of changining background of 'highighted' part
     </note>
 </todo>
