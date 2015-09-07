@@ -11,6 +11,8 @@
 .*.swp
 .*~
 .*.kate-swp
+*.orig
+*.rej
 
 # compilation outputs and generated elements:
 *.asm
@@ -28,3 +30,5 @@ dot/*.svg
 svg/*.png
 gnuplot/*.png
 gnuplot/*.svg
+dia/*.png
+dia/*.svg
