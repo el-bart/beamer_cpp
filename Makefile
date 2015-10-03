@@ -21,9 +21,9 @@ all: pdf script
 pdf: $(PDF)
 
 $(PDF): $(SRCS) $(QRS) $(PICS) $(DOTS) $(SVGS) $(DIAS) $(GPLS) $(HDRS) Makefile | cpp qr dot svg dia gnuplot
-	pdflatex $(TEXFLAGS) $(MAIN) || ( echo ; rm -fv $(PDF) ; exit 1 )
-	$(REM) pdflatex $(TEXFLAGS) $(MAIN)
-	$(REM) pdflatex $(TEXFLAGS) $(MAIN)
+	pdflatex $(TEXFLAGS) $(MAIN) < /dev/null || ( echo ; rm -fv $(PDF) ; exit 1 )
+	$(REM) pdflatex $(TEXFLAGS) $(MAIN) < /dev/null
+	$(REM) pdflatex $(TEXFLAGS) $(MAIN) < /dev/null
 
 .PHONY: fast
 fast: REM:=true
