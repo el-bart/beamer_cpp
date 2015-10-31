@@ -88,8 +88,19 @@
 
 
 % see http://latexcolor.com for others
-\definecolor{celadon}{rgb}{0.67, 0.88, 0.69}
-\lstdefinestyle{listingHighlight}{ backgroundcolor=\color{celadon} }
+\definecolor{lstBckGray}{rgb}{0.95, 0.95, 0.95}
+\lstdefinestyle{listingHighlight}
+{
+  % uncomment this this have a background for highlighted elements:
+  %backgroundcolor = \color{lstBckGray}
+}
+\lstdefinestyle{listingNoHighlight}
+{
+  commentstyle = \color{fg!30},
+  keywordstyle = \color{fg!30},
+  stringstyle  = \color{fg!30},
+  basicstyle   = \color{fg!30}
+}
 \newcounter{listingHighlightLineCounter}
 
 % \emphLine{fromLine}{toLine}{fileName}
@@ -102,26 +113,33 @@
   \ifnumequal{#1}{1}
   {
     \lstinputlisting[belowskip=0pt,
-                     linerange={#1-#2},
                      style=listingHighlight,
+                     linerange={#1-#2},
                      firstnumber=1]
                     {#3}
   }
+  % else
   {
-    \lstinputlisting[belowskip=0pt,
-                     linerange={1-\value{listingHighlightLineCounter}}]
-                    {#3}
-    \lstinputlisting[belowskip=0pt,
-                     aboveskip=0pt,
-                     linerange={#1-#2},
-                     style=listingHighlight,
-                     firstnumber=last]
-                    {#3}
+    {
+      \lstinputlisting[belowskip=0pt,
+                       style=listingNoHighlight,
+                       linerange={1-\value{listingHighlightLineCounter}}]
+                      {#3}
+    }
+    {
+      \lstinputlisting[belowskip=0pt,
+                       aboveskip=0pt,
+                       style=listingHighlight,
+                       linerange={#1-#2},
+                       firstnumber=last]
+                      {#3}
+    }
   }
   \setcounter{listingHighlightLineCounter}{#2}
   \addtocounter{listingHighlightLineCounter}{1}
 
   \lstinputlisting[aboveskip=0pt,
+                   style=listingNoHighlight,
                    firstline=\the\value{listingHighlightLineCounter},
                    firstnumber=last]
                   {#3}

@@ -36,8 +36,11 @@
             code
         </comment>
     </note>
-    <note priority="medium" time="1435077873">
+    <note priority="medium" time="1435077873" done="1446306215">
         code hihglighting by fading remaining parts instead of changining background of 'highighted' part
+        <comment>
+            added
+        </comment>
     </note>
     <note priority="medium" time="1443903477">
         color tables example/template
