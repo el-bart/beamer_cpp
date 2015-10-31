@@ -63,23 +63,26 @@
 
 
 % \slide{name}{content}
+% pass an empty 'name' to create unnamed slide
 \newcommand{\slide}[2]
 {
 \subsection*{#1}
 \begin{frame}
-\frametitle{#1}
+\frametitle{slide#1}
 \listingNormal
 #2
 \end{frame}
 }
 
 
-% \unnamedSlide{content}
-\newcommand{\unnamedSlide}[1]
+% \subSlide{name}{content}
+% pass an empty 'name' to create unnamed sub-slide
+\newcommand{\subSlide}[2]
 {
 \begin{frame}
+\frametitle{slide#1}
 \listingNormal
-#1
+#2
 \end{frame}
 }
 
