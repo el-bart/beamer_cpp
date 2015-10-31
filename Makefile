@@ -35,8 +35,8 @@ cpp qr dot svg dia gnuplot:
 
 .PHONY: script
 script: script.log
-script.log: $(SRCS)
-	grep -e '% NOTE: ' -e 'slide{' slides.tex $$(cat slides.tex | grep input | sed 's:.*{\(.*\)}:\1:') > "$@"
+script.log: $(SRCS) Makefile
+	grep -e '% NOTE: ' -e 'slide{' -e 'subSlide{' slides.tex $$(cat slides.tex | grep input | sed 's:.*{\(.*\)}:\1:') > "$@"
 
 
 .PHONY: clean
