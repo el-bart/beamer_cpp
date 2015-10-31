@@ -66,9 +66,9 @@
 % pass an empty 'name' to create unnamed slide
 \newcommand{\slide}[2]
 {
-\subsection*{#1}
+\subsection*{section#1}
 \begin{frame}
-\frametitle{slide#1}
+\frametitle{#1}
 \listingNormal
 #2
 \end{frame}
@@ -80,7 +80,7 @@
 \newcommand{\subSlide}[2]
 {
 \begin{frame}
-\frametitle{slide#1}
+\frametitle{#1}
 \listingNormal
 #2
 \end{frame}
