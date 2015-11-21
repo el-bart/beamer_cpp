@@ -15,7 +15,7 @@ all: $(PNGS)
 	gnuplot "$<" > "$@"
 
 %.png: %.svg Makefile
-	convert -units PixelsPerInch -density "$(DPI)" "$<" "$@"
+	inkscape -D -z --file="$<" --export-png="$@" --export-dpi="$(DPI)"
 
 .PHONY: clean
 clean:
