@@ -1,6 +1,6 @@
-auto count=42;                      /* initial value */
+auto count=42;                  /* initial value */
 std::string sum;
-for(auto i=0; i<count; ++i)         // loop
+for(auto i=0; i<count; ++i)     // loop
 {
   std::string xyz = "some value";
   xyz += "; counter is @ ";
@@ -8,4 +8,4 @@ for(auto i=0; i<count; ++i)         // loop
   sum += xyz;
 }
 
-std::cout << sum << std::endl;      // output sum
+std::cout << sum << std::endl;  // output sum
