@@ -1,0 +1,12 @@
+# compilation outputs:
+*.asm
+*.o
+*.oxx
+*.d
+*.tmp
+*.mod
+*.out
+*.objdump
+
+# generated elements
+*.cpp

@@ -6,6 +6,7 @@
 *.nav
 *.snm
 *.vrb
+*.out
 
 # editors swap/temporary files:
 .*.swp
@@ -13,22 +14,3 @@
 .*.kate-swp
 *.orig
 *.rej
-
-# compilation outputs and generated elements:
-*.asm
-*.o
-*.oxx
-*.d
-*.tmp
-*.mod
-*.out
-*.objdump
-qr/*.png
-cpp/*.cpp
-dot/*.png
-dot/*.svg
-svg/*.png
-gnuplot/*.png
-gnuplot/*.svg
-dia/*.png
-dia/*.svg

@@ -1,0 +1,8 @@
+*.asm
+*.o
+*.oxx
+*.d
+*.tmp
+*.mod
+*.out
+*.objdump
