@@ -45,7 +45,10 @@
     <note priority="medium" time="1443903477">
         color tables example/template
     </note>
-    <note priority="medium" time="1458722725">
+    <note priority="medium" time="1458722725" done="1458728900">
         extra command for adding reference links (for images, sources, etc...) - sth. small, not to get in the way...
+        <comment>
+            sourceRefUrl added
+        </comment>
     </note>
 </todo>
