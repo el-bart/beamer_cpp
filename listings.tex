@@ -56,15 +56,13 @@
 
 \slide{Highlighted listing with text on top of it}
 {
-\begin{itemize}
-\item Extra placeholder for listing added
-\pause
-\item This way slide's layout is NOT reformatted once listing with highlighting kicks in
-\end{itemize}
-\pause
+\begin{block}{Placeholders}
+Extra placeholder for listing added.
+This way slide's layout is NOT reformatted once listing with highlighting kicks in.
+\end{block}
 
-\only<1-2>{ \highlightedListingPlaceholder{cpp/hello_world-a.hpp} }
-\only<3>  { \lstinputlisting              {cpp/hello_world-a.hpp} }
-\only<4>  { \highlightedListing{1}{3}     {cpp/hello_world-a.hpp} }
-\only<5>  { \highlightedListing{5}{8}     {cpp/hello_world-a.hpp} }
+\only<1>{ \highlightedListingPlaceholder{cpp/hello_world-a.hpp} }
+\only<2>{ \lstinputlisting              {cpp/hello_world-a.hpp} }
+\only<3>{ \highlightedListing{1}{3}     {cpp/hello_world-a.hpp} }
+\only<4>{ \highlightedListing{5}{8}     {cpp/hello_world-a.hpp} }
 }

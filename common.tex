@@ -165,7 +165,9 @@
 % \highlightedListingPlaceholder{fileName}
 \newcommand{\highlightedListingPlaceholder}[1]
 {
-  \lstinputlisting[style=listingFullyTransparent]{#1}
+  \lstinputlisting[style=listingFullyTransparent,
+                   numbers=none]
+                  {#1}
 }
 
 
