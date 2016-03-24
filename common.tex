@@ -88,6 +88,11 @@
 }
 
 
+% \transparent{transparency/0-100/=30}{text}
+\newcommand{\transparent}[2]
+{\color{fg!#1}#2}
+
+
 % see http://latexcolor.com for others
 \definecolor{lstBckGray}{rgb}{0.95, 0.95, 0.95}
 \lstdefinestyle{listingHighlight}
@@ -148,9 +153,20 @@
 }
 
 
-% \transparent{transparency/0-100/=30}{text}
-\newcommand{\transparent}[2]
-{\color{fg!#1}#2}
+\lstdefinestyle{listingFullyTransparent}
+{
+  commentstyle = \color{fg!0},
+  morecomment  = [l][\color{fg!0}]{\#},
+  keywordstyle = \color{fg!0},
+  stringstyle  = \color{fg!0},
+  basicstyle   = \color{fg!0}
+}
+
+% \highlightedListingPlaceholder{fileName}
+\newcommand{\highlightedListingPlaceholder}[1]
+{
+  \lstinputlisting[style=listingFullyTransparent]{#1}
+}
 
 
 

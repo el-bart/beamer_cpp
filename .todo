@@ -51,7 +51,10 @@
     <note priority="medium" time="1443903477">
         color tables example/template
     </note>
-    <note priority="medium" time="1458809575">
+    <note priority="medium" time="1458809575" done="1458810114">
         add placeholders for listings, so that listings with highlighting will not reformat page, when added on the bottom
+        <comment>
+            highlightedListingPlaceholder command added
+        </comment>
     </note>
 </todo>
