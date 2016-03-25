@@ -6,6 +6,7 @@ SVGS:=$(wildcard svg/*)
 DIAS:=$(wildcard dia/*)
 GPLS:=$(wildcard gnuplot/*)
 HDRS:=$(wildcard cpp/*)
+UMLS:=$(wildcard plantuml/*)
 
 TEXFLAGS:=-file-line-error -halt-on-error
 
@@ -20,7 +21,7 @@ all: pdf script
 .PHONY: pdf
 pdf: $(PDF)
 
-$(PDF): $(SRCS) $(QRS) $(PICS) $(DOTS) $(SVGS) $(DIAS) $(GPLS) $(HDRS) Makefile | cpp qr dot svg dia gnuplot
+$(PDF): $(SRCS) $(QRS) $(PICS) $(DOTS) $(SVGS) $(DIAS) $(GPLS) $(HDRS) $(UMLS) Makefile | cpp qr dot svg dia gnuplot plantuml
 	pdflatex $(TEXFLAGS) $(MAIN) < /dev/null || ( echo ; rm -fv $(PDF) ; exit 1 )
 	$(REM) pdflatex $(TEXFLAGS) $(MAIN) < /dev/null
 	$(REM) pdflatex $(TEXFLAGS) $(MAIN) < /dev/null
@@ -29,8 +30,8 @@ $(PDF): $(SRCS) $(QRS) $(PICS) $(DOTS) $(SVGS) $(DIAS) $(GPLS) $(HDRS) Makefile 
 fast: REM:=true
 fast: pdf
 
-.PHONY: cpp qr dot svg dia gnuplot
-cpp qr dot svg dia gnuplot:
+.PHONY: cpp qr dot svg dia gnuplot plantuml
+cpp qr dot svg dia gnuplot plantuml:
 	+$(MAKE) -C "$@"
 
 .PHONY: script
@@ -47,4 +48,5 @@ clean:
 	+$(MAKE) -C svg clean
 	+$(MAKE) -C dia clean
 	+$(MAKE) -C gnuplot clean
+	+$(MAKE) -C plantuml clean
 	rm -fv *.dvi *.pdf *.aux *bak *.log *.lof *.lot *.toc *.bbl *.blg *.nav *.out *.snm *.vrb
