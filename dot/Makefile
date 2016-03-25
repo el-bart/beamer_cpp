@@ -21,7 +21,7 @@ all: $(PNGS)
 	seqdiag -Tsvg -o "$@" "$<"
 
 %.png: %.svg Makefile
-	inkscape -D -z --file="$<" --export-png="$@" --export-dpi="$(DPI)"
+	inkscape --without-gui --file="$<" --export-png="$@" --export-dpi="$(DPI)"
 
 .PHONY: clean
 clean:

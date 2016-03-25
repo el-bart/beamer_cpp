@@ -7,7 +7,7 @@ DPI:=300
 all: $(PNGS)
 
 %.png: %.svg Makefile
-	inkscape -D -z --file="$<" --export-png="$@" --export-dpi="$(DPI)"
+	inkscape --without-gui --file="$<" --export-png="$@" --export-dpi="$(DPI)"
 
 %.svg: %.dia Makefile
 	dia -t svg -e "$@" "$<"
