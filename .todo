@@ -60,4 +60,7 @@
     <note priority="medium" time="1458810675">
         split framework parts and configurable elements to a separate dirs, so that framework can be updated w/o affecting user's code
     </note>
+    <note priority="medium" time="1459454903">
+        fix marking listings parts as gray: either by transparency or by adding proper boldness to some lements
+    </note>
 </todo>
