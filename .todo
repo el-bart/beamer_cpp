@@ -63,4 +63,7 @@
     <note priority="medium" time="1459454903">
         fix marking listings parts as gray: either by transparency or by adding proper boldness to some lements
     </note>
+    <note priority="medium" time="1459527692">
+        check svg-&gt;(e)ps conversion for smaller files
+    </note>
 </todo>
