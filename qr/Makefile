@@ -5,7 +5,7 @@ PNGS:=$(TXTS:.txt=.png)
 all: $(PNGS)
 
 %.png: %.txt Makefile
-	qrencode -o "$@" -s 40 -l H -m 2 -t PNG < "$<"
+	qrencode -o "$@" -s 40 -l H -m 0 -t PNG < "$<"
 
 .PHONY: clean
 clean:
