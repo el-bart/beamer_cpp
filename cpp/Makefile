@@ -47,3 +47,5 @@ clean:
 	rm -fv $(OBJS) $(SRCS) $(APPS) $(DEPS)
 
 -include $(DEPS)
+# you can put extra flags/settings in here, if needed
+-include config.mk
