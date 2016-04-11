@@ -19,4 +19,4 @@ all: $(EPSS)
 
 .PHONY: clean
 clean:
-	rm -fv $(EPSS) $(SVGS)
+	rm -fv $(EPSS) $(SVGS) $(wildcard *-eps-converted-to.pdf)
