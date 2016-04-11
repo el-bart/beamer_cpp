@@ -1,17 +1,17 @@
 SRCS:=$(wildcard *.dia)
-PNGS:=$(SRCS:.dia=.png)
+EPSS:=$(SRCS:.dia=.eps)
 
 DPI:=300
 
 .PHONY: all
-all: $(PNGS)
+all: $(EPSS)
 
-%.png: %.svg Makefile
-	inkscape --without-gui --file="$<" --export-png="$@" --export-dpi="$(DPI)"
+%.eps: %.svg Makefile
+	inkscape --without-gui --file="$<" --export-eps="$@" --export-dpi="$(DPI)"
 
 %.svg: %.dia Makefile
 	dia -t svg -e "$@" "$<"
 
 .PHONY: clean
 clean:
-	rm -fv $(PNGS)
+	rm -fv $(EPSS)

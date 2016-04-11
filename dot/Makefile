@@ -1,10 +1,10 @@
 DOTS:=$(wildcard *.dot)
 DIAGS:=$(wildcard *.diag)
 
-PNGS+=$(DOTS:.dot=.png)
-PNGS+=$(DIAGS:.diag=.png)
+EPSS+=$(DOTS:.dot=.eps)
+EPSS+=$(DIAGS:.diag=.eps)
 
-SVGS+=$(PNGS:.png=.svg)
+SVGS+=$(EPSS:.eps=.svg)
 
 DPI:=300
 
@@ -12,7 +12,7 @@ DPI:=300
 .SECONDARY:
 
 .PHONY: all
-all: $(PNGS)
+all: $(EPSS)
 
 %.svg: %.dot Makefile
 	dot -Tsvg -o "$@" "$<"
@@ -20,9 +20,9 @@ all: $(PNGS)
 %.svg: %.diag Makefile
 	seqdiag -Tsvg -o "$@" "$<"
 
-%.png: %.svg Makefile
-	inkscape --without-gui --file="$<" --export-png="$@" --export-dpi="$(DPI)"
+%.eps: %.svg Makefile
+	inkscape --without-gui --file="$<" --export-eps="$@" --export-dpi="$(DPI)"
 
 .PHONY: clean
 clean:
-	rm -fv $(PNGS) $(SVGS)
+	rm -fv $(EPSS) $(SVGS)

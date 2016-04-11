@@ -1,12 +1,12 @@
 TXTS:=$(wildcard *.txt)
-PNGS:=$(TXTS:.txt=.png)
+EPSS:=$(TXTS:.txt=.eps)
 
 .PHONY: all
-all: $(PNGS)
+all: $(EPSS)
 
-%.png: %.txt Makefile
-	qrencode -o "$@" -s 40 -l H -m 0 -t PNG < "$<"
+%.eps: %.txt Makefile
+	qrencode -o "$@" -s 40 -l H -m 0 -t EPS < "$<"
 
 .PHONY: clean
 clean:
-	rm -fv $(PNGS)
+	rm -fv $(EPSS)

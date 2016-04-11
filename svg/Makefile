@@ -1,14 +1,14 @@
 SVGS:=$(wildcard *.svg)
-PNGS:=$(SVGS:.svg=.png)
+EPSS:=$(SVGS:.svg=.eps)
 
 DPI:=300
 
 .PHONY: all
-all: $(PNGS)
+all: $(EPSS)
 
-%.png: %.svg Makefile
-	inkscape --without-gui --file="$<" --export-png="$@" --export-dpi="$(DPI)"
+%.eps: %.svg Makefile
+	inkscape --without-gui --file="$<" --export-eps="$@" --export-dpi="$(DPI)"
 
 .PHONY: clean
 clean:
-	rm -fv $(PNGS)
+	rm -fv $(EPSS)
