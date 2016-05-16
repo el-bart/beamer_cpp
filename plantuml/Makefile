@@ -10,7 +10,7 @@ DPI:=300
 all: $(PNGS)
 
 %.svg: %.plantuml Makefile
-	plantuml -tsvg "$<"
+	DISPLAY="" plantuml -tsvg "$<"
 
 %.png: %.svg Makefile
 	inkscape --without-gui --file="$<" --export-png="$@" --export-dpi="$(DPI)"
