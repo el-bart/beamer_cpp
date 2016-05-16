@@ -1,20 +1,20 @@
 UMLS:=$(wildcard *.plantuml)
 SVGS:=$(UMLS:.plantuml=.svg)
-EPSS:=$(SVGS:.svg=.eps)
+PNGS:=$(SVGS:.svg=.png)
 
 DPI:=300
 
 .SECONDARY:
 
 .PHONY: all
-all: $(EPSS)
+all: $(PNGS)
 
 %.svg: %.plantuml Makefile
 	plantuml -tsvg "$<"
 
-%.eps: %.svg Makefile
-	inkscape --without-gui --file="$<" --export-eps="$@" --export-dpi="$(DPI)"
+%.png: %.svg Makefile
+	inkscape --without-gui --file="$<" --export-png="$@" --export-dpi="$(DPI)"
 
 .PHONY: clean
 clean:
-	rm -fv $(EPSS) $(SVGS) $(wildcard *-eps-converted-to.pdf)
+	rm -fv $(PNGS) $(SVGS)

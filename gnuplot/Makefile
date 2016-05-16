@@ -1,6 +1,6 @@
 GPLS:=$(wildcard *.gpl)
 SVGS:=$(GPLS:.gpl=.svg)
-EPSS:=$(SVGS:.svg=.eps)
+PNGS:=$(SVGS:.svg=.png)
 DATS:=$(wildcard *.dat)
 
 DPI:=300
@@ -9,14 +9,14 @@ DPI:=300
 .SECONDARY:
 
 .PHONY: all
-all: $(EPSS)
+all: $(PNGS)
 
 %.svg: %.gpl $(DATS) Makefile
 	gnuplot "$<" > "$@"
 
-%.eps: %.svg Makefile
-	inkscape --without-gui --file="$<" --export-eps="$@" --export-dpi="$(DPI)"
+%.png: %.svg Makefile
+	inkscape --without-gui --file="$<" --export-png="$@" --export-dpi="$(DPI)"
 
 .PHONY: clean
 clean:
-	rm -fv $(EPSS) $(SVGS) $(wildcard *-eps-converted-to.pdf)
+	rm -fv $(PNGS) $(SVGS)
