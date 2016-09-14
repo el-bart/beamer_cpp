@@ -37,7 +37,7 @@ cpp qr dot svg dia gnuplot plantuml:
 .PHONY: script
 script: script.log
 script.log: $(SRCS) Makefile
-	grep -e '% NOTE: ' -e 'slide{' -e 'subSlide{' slides.tex $$(cat slides.tex | grep input | sed 's:.*{\(.*\)}:\1:') > "$@"
+	grep -e '% NOTE: ' -e 'slide{' -e 'subSlide{' slides.tex $$(cat slides.tex | grep '\\input' | sed 's:.*{\(.*\)}:\1:') > "$@"
 
 
 .PHONY: clean
