@@ -24,7 +24,6 @@ pdf: $(PDF)
 $(PDF): $(SRCS) $(QRS) $(PICS) $(DOTS) $(SVGS) $(DIAS) $(GPLS) $(HDRS) $(UMLS) Makefile | cpp qr dot svg dia gnuplot plantuml
 	pdflatex $(TEXFLAGS) $(MAIN) < /dev/null || ( echo ; rm -fv $(PDF) ; exit 1 )
 	$(REM) pdflatex $(TEXFLAGS) $(MAIN) < /dev/null
-	$(REM) pdflatex $(TEXFLAGS) $(MAIN) < /dev/null
 
 .PHONY: fast
 fast: REM:=true
