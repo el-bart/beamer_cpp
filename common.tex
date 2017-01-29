@@ -177,13 +177,18 @@
 }
 
 
-
-% \sourceRefUrl{url}
-\newcommand{\sourceRefUrl}[1]
+% \sourceRefUrlShifted{h_offset}{url}
+\newcommand{\sourceRefUrlShifted}[2]
 {
   \begin{center}
   \fontsize{4}{5}
   \selectfont
-    \textit{\url{#1}}
+    \textit{\mbox{\url{#2}\hspace{-#1}}}
   \end{center}
+}
+
+% \sourceRefUrl{url}
+\newcommand{\sourceRefUrl}[1]
+{
+  \sourceRefUrlShifted{0.0001em}{#1}
 }
