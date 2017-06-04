@@ -1,0 +1,16 @@
+#!/bin/bash
+set -ex
+
+if [ $# -ne 0 ]
+then
+  echo "$0: this script takes no arguments"
+  exit 1
+fi
+
+APP_DIR=$(dirname "$(readlink -e "$0")")
+SRC_DIR=$(readlink -e "$APP_DIR/..")
+
+cd "$SRC_DIR"
+
+time make -j$(nproc) all
+test -f "main.pdf"
