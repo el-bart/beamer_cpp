@@ -9,3 +9,6 @@ presentation.
 
 template comes with set of example sides, both showing its capabilities and
 providing cheat-shit on most common beamer/LaTeX features.
+
+in order to build example one can use [ready-to-use SDK docker image](https://hub.docker.com/r/baszerr/beamer_cpp/).
+it can be downloaded with a command: `docker pull baszerr/beamer_cpp`
