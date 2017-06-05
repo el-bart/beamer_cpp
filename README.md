@@ -1,6 +1,8 @@
 Beamer C++
 ==========
 
+![automated test build](https://g.codefresh.io/api/badges/build?repoOwner=el-bart&repoName=beamer_cpp&branch=master&pipelineName=beamer_cpp&accountName=el-bart)
+
 beamer template for C++ presentations. it provides facilities to compile code
 prior to its insertion on a slide. it allows also on-the-fly generation of
 gnuplot and graphviz (dot) images, that are to be inserted on a slides.
