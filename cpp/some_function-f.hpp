@@ -1,4 +1,4 @@
-auto count=42;                  /* initial value */
+auto count=42;              /* initial value */
 std::string sum;
 for(auto i=0; i<count; ++i)     // loop
 {
