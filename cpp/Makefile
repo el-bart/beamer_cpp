@@ -28,17 +28,21 @@ all: $(OBJS) $(APPS)
 
 %-m.cpp: %-m.hpp HEADER.inl FOOTER.inl Makefile
 	@echo "MODULE $@"
-	@cat HEADER.inl $< FOOTER.inl > $@
+	@cat HEADER.inl > $@
+	@echo '#include "$<"' >> $@
+	@cat FOOTER.inl >> $@
 
 %-a.cpp: %-a.hpp HEADER.inl FOOTER.inl Makefile
 	@echo "APPLICATION $@"
-	@cat HEADER.inl $< FOOTER.inl > $@
+	@cat HEADER.inl > $@
+	@echo '#include "$<"' >> $@
+	@cat FOOTER.inl >> $@
 
 %-f.cpp: %-f.hpp HEADER.inl FOOTER.inl Makefile
 	@echo "FUNCTION $@"
 	@cat HEADER.inl > $@
 	@echo "void someFunctionThatDoesNothing(void) {" >> $@
-	@cat $< >> $@
+	@echo '#include "$<"' >> $@
 	@echo "}" >> $@
 	@cat FOOTER.inl >> $@
 
