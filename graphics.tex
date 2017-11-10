@@ -88,3 +88,56 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 \includegraphics[scale=0.33]{pic/transistor}
 \end{center}
 }
+
+
+\slide{Keeping space for images}
+{
+\begin{block}{Note}
+Thanks to usage of \texttt{onslide} image sizes are preserved, even if not displayed.
+Reserving space means things do not float between slide changes.
+\end{block}
+
+\begin{columns}
+
+\begin{column}{0.33\textwidth}
+\begin{center}
+Column 1
+\end{center}
+\end{column}
+
+\begin{column}{0.33\textwidth}
+\begin{center}
+Column 2
+\end{center}
+\end{column}
+
+\begin{column}{0.33\textwidth}
+\begin{center}
+Column 3
+\end{center}
+\end{column}
+
+\end{columns}
+
+\begin{columns}
+
+\begin{column}{0.33\textwidth}
+\begin{center}
+\onslide<2->{ \insImgCenter{0.1}{pic/transistor} }
+\end{center}
+\end{column}
+
+\begin{column}{0.33\textwidth}
+\begin{center}
+\onslide<3->{ \insImgCenter{0.2}{svg/biohazard} }
+\end{center}
+\end{column}
+
+\begin{column}{0.33\textwidth}
+\begin{center}
+\onslide<4->{ \insImgCenter{0.6}{pic/plantuml_logo} }
+\end{center}
+\end{column}
+
+\end{columns}
+}
