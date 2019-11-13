@@ -41,7 +41,7 @@ all: $(OBJS) $(APPS)
 %-f.cpp: %-f.hpp HEADER.inl FOOTER.inl Makefile
 	@echo "FUNCTION $@"
 	@cat HEADER.inl > $@
-	@echo "void someFunctionThatDoesNothing(void) {" >> $@
+	@echo "auto someFunctionThatDoesNothing(void) {" >> $@
 	@echo '#include "$<"' >> $@
 	@echo "}" >> $@
 	@cat FOOTER.inl >> $@
