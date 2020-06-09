@@ -8,7 +8,7 @@ then
 fi
 
 APP_DIR=$(dirname "$(readlink -e "$0")")
-SRC_DIR=$(readlink -e "$APP_DIR/..")
+SRC_DIR=$(readlink -e "$APP_DIR/../template")
 
 cd "$SRC_DIR"
 
