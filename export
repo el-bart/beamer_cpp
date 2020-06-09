@@ -1,9 +1,12 @@
 #!/bin/bash
 set -eu -o pipefail
 
+APP_DIR=$(dirname "$(readlink -e "$0")")
+APP=$(basename "$0")
+
 if [ $# -ne 1 ]
 then
-  echo "$0 </out/dir>" >&2
+  echo "$APP </out/dir>" >&2
   exit 2
 fi
 
@@ -12,14 +15,19 @@ shift 1
 mkdir -p "$OUT"
 OUT=$(readlink -e "$OUT")
 
-APP_DIR=$(dirname "$(readlink -e "$0")")
+
 cd "$APP_DIR"
+cp -rv \
+LICENSE \
+README.md \
+sdk \
+"$OUT/"
+
+cd "template"
 
 for f in \
 .gitignore \
-LICENSE \
 Makefile \
-README.md \
 common.tex \
 info.tex \
 main.tex \
@@ -37,7 +45,6 @@ plantuml/.gitignore \
 plantuml/Makefile \
 qr/.gitignore \
 qr/Makefile \
-sdk/Dockerfile \
 svg/.gitignore \
 svg/Makefile
 do
