@@ -8,7 +8,11 @@ GPLS:=$(wildcard gnuplot/*)
 HDRS:=$(wildcard cpp/*)
 UMLS:=$(wildcard plantuml/*)
 
-TEXFLAGS:=-file-line-error -halt-on-error
+TEXFLAGS:=
+TEXFLAGS+=-file-line-error
+TEXFLAGS+=-halt-on-error
+TEXFLAGS+=-shell-escape
+
 
 MAIN:=main
 DVI :=$(MAIN).dvi

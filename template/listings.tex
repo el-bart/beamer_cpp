@@ -86,3 +86,28 @@ This way slide's layout is NOT reformatted once listing with highlighting kicks 
 \only<3>{ \highlightedListing{1}{3}     {cpp/hello_world-a.hpp} }
 \only<4>{ \highlightedListing{5}{8}     {cpp/hello_world-a.hpp} }
 }
+
+
+\slide{Mint-colored examples}
+{
+\begin{itemize}
+\item Supports MANY languages
+\item List of supported languages: texttt{pygmentize -L lexers}
+\item Different coloring schemes possible
+\end{itemize}
+}
+
+\subSlide{Mint-colored examples: ini}
+{
+\inputminted[linenos]{ini}{misc/inventory.ini}
+}
+
+\subSlide{Mint-colored examples: shell}
+{
+\inputminted[linenos]{bash}{misc/script.sh}
+}
+
+\subSlide{Mint-colored examples: JSON}
+{
+\inputminted[linenos]{json}{misc/data.json}
+}

@@ -6,3 +6,4 @@
 *.snm
 *.vrb
 *.out
+_minted-main/*
