@@ -1,0 +1,16 @@
+#!/bin/bash
+
+while sleep 1
+do
+  inotifywait *.tex
+  sleep 0.2
+  clear
+  time docker run \
+             -it \
+             --rm \
+             -v "$PWD:/mnt/beamer" \
+             -w /mnt/beamer \
+             -u 1000:1000 \
+             baszerr/beamer_cpp \
+               make "-j$(nproc)" fast
+done
