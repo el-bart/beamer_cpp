@@ -1,8 +1,19 @@
 #!/bin/bash
+shopt -s nullglob
 
 while sleep 1
 do
-  inotifywait *.tex
+  inotifywait \
+    cpp/*.hpp cpp \
+    dia/*.dia dia \
+    dot/*.diag dot \
+    gnuplot/*.{gpl,dat} gnuplot \
+    pic/* pic \
+    plantuml/*.plantuml plantuml \
+    qr/*.txt qr \
+    svg/*.svg svg \
+    *.tex
+
   sleep 0.2
   clear
   time docker run \
