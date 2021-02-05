@@ -1,10 +1,11 @@
-sudo: required
-language: latex
+os: linux
+dist: debian
+language: generic
 services:
     - docker
 env:
     global:
-    matrix:
+    jobs:
         - SCRIPT="build_fast"
         - SCRIPT="build_all"
         - SCRIPT="build_export"
