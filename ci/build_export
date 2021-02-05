@@ -1,0 +1,23 @@
+#!/bin/bash
+set -eux -o pipefail
+
+if [ $# -ne 0 ]
+then
+  echo "$0: this script takes no arguments"
+  exit 1
+fi
+
+read PREFIX TARGET <<< $(basename "$0" | tr '_' ' ')
+unset PREFIX
+
+APP_DIR=$(dirname "$(readlink -e "$0")")
+SRC_DIR=$(readlink -e "$APP_DIR/../template")
+
+cd "$SRC_DIR/.."
+
+TMP=$(mktemp -d)
+./export_template "$TMP"
+
+cd "$TMP"
+time make -j$(nproc) all
+test -f "main.pdf"
