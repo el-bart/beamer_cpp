@@ -1,7 +1,0 @@
-version: '1.0'
-steps:
-  build:
-    image: baszerr/beamer_cpp:latest
-    working_directory: ${{main_clone}}
-    commands:
-      - ./ci/build

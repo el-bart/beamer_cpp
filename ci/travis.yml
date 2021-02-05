@@ -1,0 +1,20 @@
+sudo: required
+language: latex
+services:
+    - docker
+env:
+    global:
+    matrix:
+        - SCRIPT="build_fast"
+        - SCRIPT="build_all"
+        - SCRIPT="build_export"
+
+script:
+    - docker build -t beamer_cpp --cache-from baszerr/beamer_cpp sdk/
+    - >
+        docker run
+        --rm
+        --cap-add=SYS_PTRACE
+        --volume $(pwd):/mnt
+        beamer_cpp
+        /mnt/ci/"${SCRIPT}"
