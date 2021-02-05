@@ -1,7 +1,7 @@
 Beamer C++
 ==========
 
-[![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=el-bart&repoName=beamer_cpp&branch=master&pipelineName=beamer_cpp&accountName=el-bart&type=cf-1)]( https://g.codefresh.io/repositories/el-bart/beamer_cpp/builds?filter=trigger:build;branch:master;service:5935ae8c629cf10001d30645~beamer_cpp)
+[![travis CI build status](https://travis-ci.org/el-bart/beamer_cpp.svg?branch=master)](https://travis-ci.org/el-bart/beamer_cpp)
 
 beamer template for C++ presentations. it provides facilities to compile code
 prior to its insertion on a slide. it allows also on-the-fly generation of
