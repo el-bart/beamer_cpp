@@ -7,10 +7,13 @@ then
   exit 1
 fi
 
+read PREFIX TARGET <<< $(basename "$0" | tr '_' ' ')
+unset PREFIX
+
 APP_DIR=$(dirname "$(readlink -e "$0")")
 SRC_DIR=$(readlink -e "$APP_DIR/../template")
 
 cd "$SRC_DIR"
 
-time make -j$(nproc) all
+time make -j$(nproc) "$TARGET"
 test -f "main.pdf"
