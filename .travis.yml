@@ -1,5 +1,5 @@
 os: linux
-dist: debian
+dist: xenial
 language: generic
 services:
     - docker
