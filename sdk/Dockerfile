@@ -18,3 +18,5 @@ RUN apt-get install -y plantuml
 RUN apt-get install -y python-seqdiag
 RUN apt-get install -y qrencode
 RUN apt-get install -y g++
+RUN apt-get install -y jq
+RUN apt-get install -y python3-pygments
