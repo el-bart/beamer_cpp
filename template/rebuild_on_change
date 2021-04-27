@@ -1,6 +1,10 @@
 #!/bin/bash
 shopt -s nullglob
 
+APP_NAME=$(basename "$(readlink -e "$0")")
+SDK="${APP_NAME}_sdk"
+time docker build -t "$SDK" sdk/ || exit $?
+
 while sleep 1
 do
   inotifywait \
@@ -12,8 +16,11 @@ do
     plantuml/*.plantuml plantuml \
     qr/*.txt qr \
     svg/*.svg svg \
+    json/*.json json \
+    *.bib \
     *.tex
 
+  sync
   sleep 0.2
   clear
   time docker run \
@@ -22,6 +29,6 @@ do
              -v "$PWD:/mnt/beamer" \
              -w /mnt/beamer \
              -u 1000:1000 \
-             baszerr/beamer_cpp \
-               make "-j$(nproc)" fast
+             "$SDK" \
+               make "-j$(nproc)" # fast
 done
