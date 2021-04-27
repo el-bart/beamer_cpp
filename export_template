@@ -40,6 +40,8 @@ dot/.gitignore \
 dot/Makefile \
 gnuplot/.gitignore \
 gnuplot/Makefile \
+json/.gitignore \
+json/Makefile \
 pic/.gitignore \
 plantuml/.gitignore \
 plantuml/Makefile \
