@@ -8,6 +8,7 @@ time docker build -t "$SDK" sdk/ || exit $?
 while sleep 1
 do
   inotifywait \
+    Makefile \
     cpp/*.hpp cpp \
     dia/*.dia dia \
     dot/*.diag dot \
