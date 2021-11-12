@@ -7,7 +7,7 @@
 \item Modules end with "-m"
 \item They are self-containing
 \end{itemize}
-\lstinputlisting{cpp/test-m.hpp}
+\insCppSrc{test-m}
 }
 
 
@@ -17,7 +17,7 @@
 \item Functions ends with "-f"
 \item Content of file is wrapped into a function call
 \end{itemize}
-\lstinputlisting{cpp/other-f.hpp}
+\insCppSrc{other-f}
 }
 
 
@@ -27,7 +27,7 @@
 \item Functions can return a value
 \item Default is \texttt{void}
 \end{itemize}
-\lstinputlisting{cpp/returning-f.hpp}
+\insCppSrc{returning-f}
 }
 
 
@@ -37,7 +37,7 @@
 \item Automatically wrap lines
 \item If the line does not fit
 \end{itemize}
-\lstinputlisting{cpp/long_lines-m.hpp}
+\insCppSrc{long_lines-m}
 }
 
 
@@ -45,32 +45,34 @@
 {
 \tiny{}
 \begin{multicols}{2}
-\lstinputlisting{cpp/long_source-m.hpp}
+\insCppSrc{long_source-m}
 \end{multicols}
 }
 
 
 \slide{Highlighted listing 1}
 {
-\only<1>{ \lstinputlisting           {cpp/some_function-f.hpp} }
-\only<2>{ \highlightedListing{1}{1}  {cpp/some_function-f.hpp} }
-\only<3>{ \highlightedListing{2}{2}  {cpp/some_function-f.hpp} }
-\only<4>{ \highlightedListing{3}{3}  {cpp/some_function-f.hpp} }
-\only<5>{ \highlightedListing{5}{8}  {cpp/some_function-f.hpp} }
-\only<6>{ \highlightedListing{3}{3}  {cpp/some_function-f.hpp} }
-\only<7>{ \highlightedListing{5}{8}  {cpp/some_function-f.hpp} }
-\only<8>{ \highlightedListing{11}{11}{cpp/some_function-f.hpp} }
+\only<1>{ \insCppSrc{some_function-f} }
+\only<2>{ \insCppSrcHl{1}{some_function-f} }
+\only<3>{ \insCppSrcHl{2}{some_function-f} }
+\only<4>{ \insCppSrcHl{3}{some_function-f} }
+\only<5>{ \insCppSrcHl{5-8}{some_function-f} }
+\only<6>{ \insCppSrcHl{{2,8}}{some_function-f} }
+\only<7>{ \insCppSrcHl{{2,5-8}}{some_function-f} }
+\only<8>{ \insCppSrcHl{3}{some_function-f} }
+\only<9>{ \insCppSrcHl{5-8}{some_function-f} }
+\only<10>{ \insCppSrcHl{11}{some_function-f} }
 }
 
 
 \slide{Highlighted listing 2}
 {
-\only<1>{ \lstinputlisting         {cpp/hello_world-a.hpp} }
-\only<2>{ \highlightedListing{1}{1}{cpp/hello_world-a.hpp} }
-\only<3>{ \highlightedListing{3}{3}{cpp/hello_world-a.hpp} }
-\only<4>{ \highlightedListing{5}{8}{cpp/hello_world-a.hpp} }
-\only<5>{ \highlightedListing{7}{7}{cpp/hello_world-a.hpp} }
-\only<6>{ \lstinputlisting         {cpp/hello_world-a.hpp} }
+\only<1>{ \insCppSrc{hello_world-a} }
+\only<2>{ \insCppSrcHl{1}{hello_world-a} }
+\only<3>{ \insCppSrcHl{3}{hello_world-a} }
+\only<4>{ \insCppSrcHl{5-8}{hello_world-a} }
+\only<5>{ \insCppSrcHl{7}{hello_world-a} }
+\only<6>{ \insCppSrc{hello_world-a} }
 }
 
 
@@ -81,10 +83,11 @@ Extra placeholder for listing added.
 This way slide's layout is NOT reformatted once listing with highlighting kicks in.
 \end{block}
 
-\only<1>{ \highlightedListingPlaceholder{cpp/hello_world-a.hpp} }
-\only<2>{ \lstinputlisting              {cpp/hello_world-a.hpp} }
-\only<3>{ \highlightedListing{1}{3}     {cpp/hello_world-a.hpp} }
-\only<4>{ \highlightedListing{5}{8}     {cpp/hello_world-a.hpp} }
+% TODO: this does not work as expected yet...
+\only<1>{ \insPlaceholder{\insCppSrc{hello_world-a}} }
+\only<2>{ \insCppSrc{hello_world-a} }
+\only<3>{ \insCppSrcHl{1-3}{hello_world-a} }
+\only<4>{ \insCppSrcHl{5-8}{hello_world-a} }
 }
 
 
@@ -97,20 +100,24 @@ This way slide's layout is NOT reformatted once listing with highlighting kicks 
 \end{itemize}
 }
 
+
 \subSlide{Mint-colored examples: ini}
 {
 \inputminted[linenos]{ini}{misc/inventory.ini}
 }
+
 
 \subSlide{Mint-colored examples: shell}
 {
 \inputminted[linenos]{bash}{misc/script.sh}
 }
 
+
 \subSlide{Mint-colored examples: JSON}
 {
 \inputminted[linenos]{json}{json/mice.format.json}
 }
+
 
 \subSlide{Mint-colored examples: reformatted JSON}
 {
