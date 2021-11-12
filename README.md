@@ -1,8 +1,6 @@
 Beamer C++
 ==========
 
-[![travis CI build status](https://travis-ci.org/el-bart/beamer_cpp.svg?branch=master)](https://travis-ci.org/el-bart/beamer_cpp)
-
 beamer template for C++ presentations. it provides facilities to compile code
 prior to its insertion on a slide. it allows also on-the-fly generation of
 gnuplot and graphviz (dot) images, that are to be inserted on a slides.
@@ -12,5 +10,7 @@ presentation.
 template comes with set of example sides, both showing its capabilities and
 providing cheat-shit on most common beamer/LaTeX features.
 
-in order to build example one can use [ready-to-use SDK docker image](https://hub.docker.com/r/baszerr/beamer_cpp/).
-it can be downloaded with a command: `docker pull baszerr/beamer_cpp`
+in order to used containerized SDK, just run `./rebuild_on_change`.
+the script automatically monitors for source files changes and uses Docker to build latest document version.
+file `main.pdf` is used as build temporary and final file (if build is successful) gets copied as `latest.pdf`.
+additionally you nca pass arguments to `./rebuild_on_change`, that will be passed on to `make` directly (eg. `fast` to do 1-run through LaTeX files).
