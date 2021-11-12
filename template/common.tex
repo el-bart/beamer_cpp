@@ -31,33 +31,6 @@
 \input{info.tex}
 
 
-\newcommand{\listingNormal}
-{
-\lstset
-{
-  language=C++,
-  numbers=left,
-  numberstyle=\tiny\color{gray},
-  xleftmargin=1em, % increase this if numbers are shown out of page's area
-  basicstyle=\ttfamily,
-  keywordstyle=\color{blue}\ttfamily,
-  stringstyle=\color{red}\ttfamily,
-  commentstyle=\color{cyan}\ttfamily,
-  morecomment=[l][\color{magenta}]{\#},
-  breaklines=true,
-  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}, % show a line-break marker
-  showlines=true % do NOT ignore any whitespaces in the file!
-}
-}
-
-
-\newcommand{\listingNoLineNum}
-{
-\lstset{numbers=none}
-}
-
-
-
 % insImgFr{frame-range}{x}{y}{s}{img}
 \newcommand{\insImgFr}[5]
 {
@@ -65,11 +38,15 @@
     \includegraphics<#1>[scale=#4]{#5}
   \end{textblock*}
 }
+
+
 % insImg{x}{y}{s}{img}
 \newcommand{\insImg}[4]
 {
   \insImgFr{0-}{#1}{#2}{#3}{#4}
 }
+
+
 % insImgCenter{s}{img}
 \newcommand{\insImgCenter}[2]
 {
@@ -79,28 +56,29 @@
 }
 
 
-% \slide{name}{content}
-% pass an empty 'name' to create unnamed slide
-\newcommand{\slide}[2]
+% \subSlide{name}{content}
+% pass an empty 'name' to create unnamed sub-slide
+\newcommand{\subSlide}[2]
 {
-\subsection*{section#1}
+\usemintedstyle{xcode}
+% \usemintedstyle{tango}
+% \usemintedstyle{manni}
+% \usemintedstyle{perldoc}
+% \usemintedstyle{autumn}
+% \usemintedstyle{rainbow_dash}
 \begin{frame}
 \frametitle{#1}
-\listingNormal
 #2
 \end{frame}
 }
 
 
-% \subSlide{name}{content}
-% pass an empty 'name' to create unnamed sub-slide
-\newcommand{\subSlide}[2]
+% \slide{name}{content}
+% pass an empty 'name' to create unnamed slide
+\newcommand{\slide}[2]
 {
-\begin{frame}
-\frametitle{#1}
-\listingNormal
-#2
-\end{frame}
+\subsection*{section#1}
+\subSlide{#1}{#2}
 }
 
 
@@ -109,81 +87,29 @@
 {\color{fg!#1}#2}
 
 
-% see http://latexcolor.com for others
-\definecolor{lstBckGray}{rgb}{0.95, 0.95, 0.95}
-\lstdefinestyle{listingHighlight}
+% \insCppSrc{fileName}
+\newcommand{\insCppSrc}[1]
 {
-  % uncomment this this have a background for highlighted elements:
-  %backgroundcolor = \color{lstBckGray}
+\inputminted[linenos,
+             breaklines=true]
+             {cpp}{cpp/#1.hpp}
 }
-\lstdefinestyle{listingNoHighlight}
+
+% \insCppSrcHl{line(s)}{fileName}
+\newcommand{\insCppSrcHl}[2]
 {
-  commentstyle = \color{fg!30},
-  morecomment  = [l][\color{fg!30}]{\#},
-  keywordstyle = \color{fg!30},
-  stringstyle  = \color{fg!30},
-  basicstyle   = \color{fg!30}
-}
-\newcounter{listingHighlightLineCounter}
-
-% \emphLine{fromLine}{toLine}{fileName}
-\newcommand{\highlightedListing}[3]
-{
-  \setcounter{listingHighlightLineCounter}{#1}
-  \addtocounter{listingHighlightLineCounter}{-1}
-
-  % when first line is to be highlighted, first section cannot be used
-  \ifnumequal{#1}{1}
-  {
-    \lstinputlisting[belowskip=0pt,
-                     style=listingHighlight,
-                     linerange={#1-#2},
-                     firstnumber=1]
-                    {#3}
-  }
-  % else
-  {
-    {
-      \lstinputlisting[belowskip=0pt,
-                       style=listingNoHighlight,
-                       linerange={1-\value{listingHighlightLineCounter}}]
-                      {#3}
-    }
-    {
-      \lstinputlisting[belowskip=0pt,
-                       aboveskip=0pt,
-                       style=listingHighlight,
-                       linerange={#1-#2},
-                       firstnumber=last]
-                      {#3}
-    }
-  }
-  \setcounter{listingHighlightLineCounter}{#2}
-  \addtocounter{listingHighlightLineCounter}{1}
-
-  \lstinputlisting[aboveskip=0pt,
-                   style=listingNoHighlight,
-                   firstline=\the\value{listingHighlightLineCounter},
-                   firstnumber=last]
-                  {#3}
+\inputminted[linenos,
+             breaklines=true,
+             highlightcolor=lightgray,
+             highlightlines=#1]
+             {cpp}{cpp/#2.hpp}
 }
 
 
-\lstdefinestyle{listingFullyTransparent}
+% \insPlaceholder{what}
+\newcommand{\insPlaceholder}[1]
 {
-  commentstyle = \color{fg!0},
-  morecomment  = [l][\color{fg!0}]{\#},
-  keywordstyle = \color{fg!0},
-  stringstyle  = \color{fg!0},
-  basicstyle   = \color{fg!0}
-}
-
-% \highlightedListingPlaceholder{fileName}
-\newcommand{\highlightedListingPlaceholder}[1]
-{
-  \lstinputlisting[style=listingFullyTransparent,
-                   numbers=none]
-                  {#1}
+\transparent{0}{#1}
 }
 
 
@@ -197,6 +123,7 @@
     \textit{\mbox{\url{#2}\hspace{-#1}}}
   \end{center}
 }
+
 
 % \sourceRefUrl{url}
 \newcommand{\sourceRefUrl}[1]
