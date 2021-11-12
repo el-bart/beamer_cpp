@@ -31,6 +31,6 @@ do
              -w /mnt/beamer \
              -u 1000:1000 \
              "$SDK" \
-               make "-j$(nproc)" && \
+               make "-j$(nproc)" "$@" && \
     cp -v "main.pdf" "latest.pdf"
 done
