@@ -18,7 +18,7 @@ all: $(PNGS)
 	dot -Tsvg -o "$@" "$<"
 
 %.svg: %.diag Makefile
-	seqdiag -Tsvg -o "$@" "$<"
+	seqdiag3 -Tsvg -o "$@" "$<"
 
 %.png: %.svg Makefile
 	inkscape --without-gui --file="$<" --export-png="$@" --export-dpi="$(DPI)"
