@@ -47,6 +47,7 @@ plantuml/.gitignore \
 plantuml/Makefile \
 qr/.gitignore \
 qr/Makefile \
+rebuild \
 rebuild_on_change \
 svg/.gitignore \
 svg/Makefile
