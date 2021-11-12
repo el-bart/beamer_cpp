@@ -1,9 +1,8 @@
 #!/bin/bash
 shopt -s nullglob
 
-APP_NAME=$(basename "$(readlink -e "$0")")
-SDK="${APP_NAME}_sdk"
-time docker build -t "$SDK" sdk/ || exit $?
+./rebuild "$@" || exit $?
+export BEAMER_CPP_SKIP_SDK_BUILD="true"
 
 while sleep 1
 do
@@ -24,13 +23,5 @@ do
   sync
   sleep 0.2
   clear
-  time docker run \
-             -it \
-             --rm \
-             -v "$PWD:/mnt/beamer" \
-             -w /mnt/beamer \
-             -u 1000:1000 \
-             "$SDK" \
-               make "-j$(nproc)" "$@" && \
-    cp -v "main.pdf" "latest.pdf"
+  ./rebuild "$@"
 done

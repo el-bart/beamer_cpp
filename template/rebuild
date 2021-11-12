@@ -1,0 +1,23 @@
+#!/bin/bash
+set -eu -o pipefail
+
+dir_name=$(basename "$(dirname "$(readlink -e "$0")")")
+app_name=$(basename "$(readlink -e "$0")")
+sdk="${dir_name}_${app_name}_sdk"
+
+BEAMER_CPP_SKIP_SDK_BUILD=${BEAMER_CPP_SKIP_SDK_BUILD:-false}
+if [ "$BEAMER_CPP_SKIP_SDK_BUILD" = "false" ]
+then
+  time docker build -t "$sdk" sdk/
+fi
+
+time docker run \
+  -it \
+  --rm \
+  -v "$PWD:/mnt/beamer" \
+  -w /mnt/beamer \
+  -u "$(id -u):$(id -g)" \
+  "$sdk" \
+    make "-j$(nproc)" "$@"
+
+cp -v "main.pdf" "latest.pdf"
