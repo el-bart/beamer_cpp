@@ -87,12 +87,18 @@
 {\color{fg!#1}#2}
 
 
-% \insCppSrc{fileName}
-\newcommand{\insCppSrc}[1]
+% \insSrc{lang}{fileName}
+\newcommand{\insSrc}[2]
 {
 \inputminted[linenos,
              breaklines=true]
-             {cpp}{cpp/#1.hpp}
+             {#1}{#2}
+}
+
+% \insCppSrc{fileName}
+\newcommand{\insCppSrc}[1]
+{
+\insSrc{cpp}{cpp/#1.hpp}
 }
 
 % \insCppSrcHl{line(s)}{fileName}
